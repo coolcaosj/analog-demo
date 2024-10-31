@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
 
@@ -31,6 +31,10 @@ import PostAttributes from '../../post-attributes';
     }
   `,
 })
-export default class BlogComponent {
+export default class BlogComponent implements OnInit {
   readonly posts = injectContentFiles<PostAttributes>();
+
+  ngOnInit(): void {
+
+  }
 }
