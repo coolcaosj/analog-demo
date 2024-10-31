@@ -3,4 +3,6 @@ export default interface PostAttributes {
   slug: string;
   description: string;
   coverImage: string;
+  tags: string[];
+  category: string;
 }

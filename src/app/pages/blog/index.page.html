@@ -1,0 +1,8 @@
+<h1>Blog Archive</h1>
+<div>标签：{{tags}}</div>
+@for (post of posts; track post.attributes.slug) {
+<a [routerLink]="['/blog/post/', post.attributes.slug]">
+  <h2 class="post__title">{{ post.attributes.title }}</h2>
+  <p class="post__desc">{{ post.attributes.description }}</p>
+</a>
+}

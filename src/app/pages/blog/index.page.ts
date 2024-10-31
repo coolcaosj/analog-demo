@@ -8,31 +8,15 @@ import PostAttributes from '../../post-attributes';
   selector: 'app-blog',
   standalone: true,
   imports: [RouterLink],
-  template: `
-    <h1>Blog Archive</h1>
-
-    @for (post of posts; track post.attributes.slug) {
-    <a [routerLink]="['/blog/', post.attributes.slug]">
-      <h2 class="post__title">{{ post.attributes.title }}</h2>
-      <p class="post__desc">{{ post.attributes.description }}</p>
-    </a>
-    }
-  `,
-  styles: `
-    a {
-      text-align: left;
-      display: block;
-      margin-bottom: 2rem;
-    }
-
-    .post__title,
-    .post__desc {
-      margin: 0;
-    }
-  `,
+  templateUrl: './index.page.html',
+  styleUrl: './index.page.css',
 })
 export default class BlogComponent implements OnInit {
   readonly posts = injectContentFiles<PostAttributes>();
+  readonly tags = this.posts.reduce((acc, post) => {
+    return [...acc, ...post.attributes.tags];
+  }, []);
+
 
   ngOnInit(): void {
 
