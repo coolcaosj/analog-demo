@@ -22,8 +22,24 @@ export default class BlogComponent implements OnInit {
   // 博客分类
   readonly categories =  this.blogStore.categories;
 
+  // 分页
+  readonly hasNext = this.blogStore.hasNext;
+  readonly hasPrev = this.blogStore.hasPrev;
+  readonly pageIdx = this.blogStore.pageIndex;
+  readonly totalPage = this.blogStore.totalPage;
+
+
   constructor() {}
 
   ngOnInit(): void {
+
   }
+
+  next() {
+    this.blogStore.nextPage();
+  }
+  prev() {
+    this.blogStore.prevPage();
+  }
+
 }

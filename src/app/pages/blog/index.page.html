@@ -1,15 +1,23 @@
 <div class="w-full flex justify-center items-center">
   <div class="w-3/5  py-10">
     @for (post of posts(); track post.attributes.slug) {
-      <div class="flex min-h-[150px] justify-center items-center bg-blue-50 hover:bg-blue-100 cursor-pointer my-3"  [routerLink]="['post', post.attributes.slug]">
-        <div class="max-w-[80px] max-h-[80px]">
-          <img class="w-full h-full p-2" [src]="post.attributes.coverImage"/>
-        </div>
+      <div class="flex min-h-[150px] justify-center items-center rounded-md bg-blue-50 hover:bg-blue-100 cursor-pointer my-3"  [routerLink]="['post', post.attributes.slug]">
+        @if (post.attributes.coverImage) {
+          <div class="max-w-[80px] max-h-[80px]">
+            <img class="w-full h-full p-2" [src]="post.attributes.coverImage"/>
+          </div>
+        }
+
         <div class="flex-1 flex flex-col mx-5">
           <h2 class="font-bold text-lg">{{ post.attributes.title }}</h2>
           <p class="text-base">{{ post.attributes.description }}</p>
         </div>
       </div>
     }
+    <div class="w-full flex justify-between mt-10">
+      <button class="px-3 py-1 bg-blue-500 text-white rounded-md disabled:opacity-50" [disabled]="!hasPrev()" (click)="prev()">上一页</button>
+      <div class="flex items-center">当前第{{ pageIdx() }}页，共{{ totalPage() }}页</div>
+      <button class="px-3 py-1 bg-blue-500 text-white rounded-md disabled:opacity-50" [disabled]="!hasNext()" (click)="next()">下一页</button>
+    </div>
   </div>
 </div>
