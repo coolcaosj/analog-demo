@@ -1,8 +1,15 @@
-<h1>Blog Archive</h1>
-<div>标签：{{tags}}</div>
-@for (post of posts; track post.attributes.slug) {
-<a [routerLink]="['/blog/post/', post.attributes.slug]">
-  <h2 class="post__title">{{ post.attributes.title }}</h2>
-  <p class="post__desc">{{ post.attributes.description }}</p>
-</a>
-}
+<div class="w-full flex justify-center items-center">
+  <div class="w-3/5  py-10">
+    @for (post of posts(); track post.attributes.slug) {
+      <div class="flex min-h-[150px] justify-center items-center bg-blue-50 hover:bg-blue-100 cursor-pointer my-3"  [routerLink]="['post', post.attributes.slug]">
+        <div class="max-w-[80px] max-h-[80px]">
+          <img class="w-full h-full p-2" [src]="post.attributes.coverImage"/>
+        </div>
+        <div class="flex-1 flex flex-col mx-5">
+          <h2 class="font-bold text-lg">{{ post.attributes.title }}</h2>
+          <p class="text-base">{{ post.attributes.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

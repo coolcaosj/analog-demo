@@ -7,7 +7,7 @@
     "node": ">=18.13.0"
   },
   "scripts": {
-    "dev": "ng serve",
+    "dev": "ng serve --hmr",
     "ng": "ng",
     "start": "yarn dev",
     "build": "ng build",

@@ -2,5 +2,5 @@ interface SiteConfig {
   siteName: string;
 }
 export const siteConfig: SiteConfig = {
-  siteName: 'Analog博客',
+  siteName: '技多不压身',
 }

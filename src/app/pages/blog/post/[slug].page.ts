@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { injectContent, MarkdownComponent } from '@analogjs/content';
 
 import PostAttributes from '../../../post-attributes';
@@ -7,7 +7,7 @@ import PostAttributes from '../../../post-attributes';
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [AsyncPipe, MarkdownComponent],
+  imports: [AsyncPipe, MarkdownComponent, DatePipe],
   templateUrl: './[slug].page.html',
   styleUrl: './[slug].page.css',
 })
