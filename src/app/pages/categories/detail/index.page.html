@@ -1,0 +1,15 @@
+<div class="w-full flex justify-center items-center">
+  <div class="w-3/5  py-20 flex flex-col">
+    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500">
+      {{category()}}
+      <span class="text-gray-400 text-base mx-2">分类</span>
+    </div>
+    <div class="w-full flex flex-col mt-5">
+      @for (item of posts(); track $index) {
+      <div class="w-full flex justify-start items-center px-10 py-2 cursor-pointer text-gray-500 hover:text-gray-600" [routerLink]="'/blog/post/' + item.attributes.slug">
+        <div class="text-base border-b-2 border-dotted">{{item.attributes.title}}</div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
