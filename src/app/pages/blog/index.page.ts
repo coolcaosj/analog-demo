@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { ContentFile, injectContentFiles } from '@analogjs/content';
 
 import PostAttributes from '../../post-attributes';
@@ -8,7 +9,7 @@ import { BlogStore } from '../../store/blog.store';
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './index.page.html',
   styleUrl: './index.page.css',
 })
