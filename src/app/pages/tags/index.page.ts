@@ -1,9 +1,11 @@
 import { Component, computed, inject, OnInit } from "@angular/core";
+import { RouterLink } from "@angular/router";
 import { BlogStore } from "../../store/blog.store";
 
 @Component({
   selector: 'app-tags',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './index.page.html',
   styleUrl: './index.page.css',
 })

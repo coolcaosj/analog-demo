@@ -12,6 +12,8 @@ export class BlogStore {
   private _pageIndex = signal(1); // 当前页码
   private _search = signal('');   // 搜索关键字
 
+  readonly allPosts = this._content.asReadonly();
+
   readonly pageSize = this._pageSize.asReadonly();
   readonly pageIndex = this._pageIndex.asReadonly();
   readonly search = this._search.asReadonly();
@@ -22,7 +24,10 @@ export class BlogStore {
   readonly posts = computed(() => {
     return this._content().filter(post => post.attributes.slug != 'about').filter(post => {
       if (post.attributes.title) {
-        return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
+        if (this._search()) {
+          return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
+        }
+        return true;
       }
       return false;
     }).sort((a,b) => {
