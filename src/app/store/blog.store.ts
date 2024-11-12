@@ -37,7 +37,6 @@ export class BlogStore {
       const postTags = post.attributes.tags;
       if (!postTags) return result;
       for (const t of postTags) {
-        if (result.includes(t)) continue;
         result.push(t);
       }
       return result;

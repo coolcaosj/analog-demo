@@ -1,1 +1,10 @@
-<div>tags</div>
+<div class="w-full flex justify-center items-center">
+  <div class="w-3/5  py-20 flex flex-col">
+    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500">共有 {{tagsCount()}} 个标签</div>
+    <div class="w-full flex flex-wrap mt-10">
+      @for (item of tags(); track $index) {
+        <div class="h-8 m-2 p-2 px-4 border-b-2 hover:text-gray-600 flex justify-center items-center text-gray-400 cursor-pointer" [style]="{ 'font-size': getTagSize(item) }"> {{item}}  </div>
+      }
+    </div>
+  </div>
+</div>
