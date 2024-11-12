@@ -36,7 +36,7 @@ export class BlogStore {
       return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime();
     }).slice((this.pageIndex() - 1) * this.pageSize(), this.pageIndex() * this.pageSize());
   });
-  readonly count = computed(() => this.posts().length);
+  readonly count = computed(() => this.allPosts().length);
   readonly tags = computed(() => {
     return this._content().reduce((result: string[], post: ContentFile<PostAttributes>) => {
       const postTags = post.attributes.tags;
@@ -58,7 +58,7 @@ export class BlogStore {
   });
 
   readonly archives = computed(() => {
-    return this.posts().reduce((result: Map<string, string[][]>, post: ContentFile<PostAttributes>) => {
+    return this.allPosts().reduce((result: Map<string, string[][]>, post: ContentFile<PostAttributes>) => {
       const postDate = post.attributes.date;
       if (!postDate) return result;
       const year = new Date(postDate).getFullYear();
