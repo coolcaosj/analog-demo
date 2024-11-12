@@ -1,10 +1,11 @@
 <div class="w-full h-full flex justify-center items-center">
-  <div class="w-3/5 h-full flex flex-col py-10">
+  <div class="w-3/5 h-full flex flex-col py-5">
     @if (post$ | async; as post) {
       <article class="w-full h-full flex flex-col">
         <h1 class="text-3xl font-bold  w-full flex justify-center items-center text-gray-500">{{ post.attributes.title }}</h1>
         <h2 class="text-base font-bold my-2 w-full flex justify-center items-center text-gray-400">{{ post.attributes.date | date: 'yyyy-MM-dd' }}</h2>
-        <img class="w-auto h-auto max-h-[200px] object-cover" [src]="post.attributes.coverImage" />
+        <hr>
+        <img class="w-auto h-auto max-h-[200px] object-cover my-5" [src]="post.attributes.coverImage" />
         <analog-markdown [content]="post.content" />
       </article>
       <hr class="my-5" />
