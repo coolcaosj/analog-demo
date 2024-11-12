@@ -14,21 +14,24 @@ export class BlogStore {
 
   readonly pageSize = this._pageSize.asReadonly();
   readonly pageIndex = this._pageIndex.asReadonly();
-  readonly count = computed(() => this._content().length);
   readonly search = this._search.asReadonly();
   readonly hasNext = computed(() => this.pageIndex() * this.pageSize() < this.count());
   readonly hasPrev = computed(() => this.pageIndex() > 1);
   readonly totalPage = computed(() => Math.ceil(this.count() / this.pageSize()));
 
   readonly posts = computed(() => {
-    return this._content().filter(post => {
-      return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
+    return this._content().filter(post => post.attributes.slug != 'about').filter(post => {
+      if (post.attributes.title) {
+        return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
+      }
+      return false;
     }).sort((a,b) => {
       if (a.attributes.pinned &&!b.attributes.pinned) return -1;
       if (!a.attributes.pinned && b.attributes.pinned) return 1;
       return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime();
     }).slice((this.pageIndex() - 1) * this.pageSize(), this.pageIndex() * this.pageSize());
   });
+  readonly count = computed(() => this.posts().length);
   readonly tags = computed(() => {
     return this._content().reduce((result: string[], post: ContentFile<PostAttributes>) => {
       const postTags = post.attributes.tags;
