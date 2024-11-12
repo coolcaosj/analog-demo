@@ -52,6 +52,21 @@ export class BlogStore {
     }, [] as string[]);
   });
 
+  readonly archives = computed(() => {
+    return this.posts().reduce((result: Map<string, string[][]>, post: ContentFile<PostAttributes>) => {
+      const postDate = post.attributes.date;
+      if (!postDate) return result;
+      const year = new Date(postDate).getFullYear();
+      const key = `${year}`;
+      if (result.has(key)) {
+        result.get(key)?.push([post.attributes.slug, post.attributes.title]);
+      } else {
+        result.set(key, [[post.attributes.slug, post.attributes.title]]);
+      }
+      return result;
+    }, new Map());
+  });
+
   setSearch(text: string) {
     this._search.set(text);
   }
