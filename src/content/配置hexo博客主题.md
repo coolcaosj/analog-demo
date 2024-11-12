@@ -1,13 +1,10 @@
 ---
 title: 配置hexo博客主题
 slug: hexo-themes
-date: 2024-11-06
-description: 测试243
-coverImage: https://s2.loli.net/2024/11/06/wTS1ftYQU4LpEBa.png
-tags: ['技术', 'js']
-category: 
-  - 技术
-  - 原创
+date: 2023-11-05 17:06:06
+tags: [hexo, 博客, 自建博客]
+categories:
+- 技术分享
 ---
 
 ![1.png](https://s2.loli.net/2024/11/06/wTS1ftYQU4LpEBa.png)
@@ -26,7 +23,7 @@ category:
 ## 主题安装
 主题的安装比较简单，只需要将主题的源码下载到我们的博客的themes文件夹中即可。
 
-```bash
+```shell
 git clone https://github.com/theme-next/hexo-theme-next themes/next
 ```
 
@@ -79,7 +76,7 @@ menu:
 
 在source目录下建立对应的目录，并在目录下创建 `index.md` 文件，得到如下目录结构：
 
-```bash
+```shell
 source
 ├── _posts
 ├── about
@@ -155,3 +152,4 @@ sidebar:
 当修改完主题配置后，我们就可以将我们的博客部署到github pages上了。
 
 每个主题的具体细节配置，可能不一样，可以参考主题的文档进行配置。
+

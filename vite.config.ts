@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
           },
           highlighter: {
             // add more languages
-            langs: ['ts', 'js', 'yaml', 'bash', 'md', 'ansi', 'c', 'cpp', 'css', 'docker', 'go', 'html', 'java', 'json', 'jsx', 'kotlin', 'markdown', 'php', 'python', 'rust', 'scss', 'sql', 'tsx', 'jsx', 'typescript', 'vue', 'yaml', 'xml'],
+            langs: ['ts', 'js', 'yaml', 'bash', 'md', 'ansi', 'c', 'cpp', 'css', 'docker', 'go', 'html', 'java', 'json', 'jsx', 'kotlin', 'markdown', 'php', 'python', 'rust', 'scss', 'sql', 'tsx', 'jsx', 'typescript', 'vue', 'yaml', 'xml', 'lua'],
           },
         },
       },
