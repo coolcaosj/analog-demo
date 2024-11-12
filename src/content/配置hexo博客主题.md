@@ -3,7 +3,7 @@ title: 配置hexo博客主题
 slug: hexo-themes
 date: 2023-11-05 17:06:06
 tags: [hexo, 博客, 自建博客]
-categories:
+category:
 - 技术分享
 ---
 

@@ -3,7 +3,7 @@ title: 使用github-pages部署hexo个人博客
 slug: github-pages-hexo-blog
 date: 2023-11-01 16:43:12
 tags: [hexo, 自建博客, github, 博客]
-categories: 
+category: 
 - 技术分享
 ---
 

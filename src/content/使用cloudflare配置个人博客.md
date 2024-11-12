@@ -3,7 +3,7 @@ title: 使用cloudflare配置个人博客
 slug: cloudflare-blog
 date: 2023-11-06 10:41:19
 tags: [cloudflare, 自建博客, 博客]
-categories:
+category:
 - 技术分享
 ---
 

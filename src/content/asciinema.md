@@ -3,7 +3,7 @@ title: asciinema
 slug: asciinema
 tags: [终端工具, 录屏, asciinema, 软件, 免费软件, 终端录制, 开源]
 date: 2023-11-07 11:27:32
-categories:
+category:
 - 软件推荐
 ---
 

@@ -3,7 +3,7 @@ title: 使用cloudflare和telegraph-image搭建免费无限的图床
 slug: cloudflare-telegraph-image
 date: 2023-11-06 14:20:40
 tags: [cloudflare, 图床, 白嫖, 免费, telegraph-image]
-categories: 
+category: 
 - 技术分享
 ---
 
