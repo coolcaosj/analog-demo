@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { siteConfig } from './site.config';
 import { BlogStore } from './store/blog.store';
@@ -12,11 +12,37 @@ import { BlogStore } from './store/blog.store';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  constructor(
+    private readonly router: Router,
+  ) {}
   private readonly store = inject(BlogStore)
   siteName:string = siteConfig.siteName;
   search  = this.store.search;
+  showSearch: boolean = false;
+  searchResult = this.store.searchResult;
 
   searchChange(text: string) {
     this.store.setSearch(text);
+  }
+
+  showSearchModal() {
+    this.showSearch = true;
+  }
+  closeSearchModal() {
+    this.showSearch = false;
+  }
+
+  goToPost(slug: string) {
+    this.closeSearchModal();
+    this.store.setSearch('');
+    this.router.navigate(['blog', 'post', slug]);
+  }
+
+  clickModal(event: MouseEvent) {
+    if (event.target !== event.currentTarget) {
+      // 点击的是子元素，不触发事件
+      return;
+    }
+    this.closeSearchModal();
   }
 }

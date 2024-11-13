@@ -14,7 +14,7 @@ export class BlogStore {
 
   readonly allPosts = computed(() => {
     // 只保留post
-    return this._content().filter(post => post.attributes.slug!= 'about');
+    return this._content().filter(post => post.attributes.slug != 'about');
   });
 
   readonly pageSize = this._pageSize.asReadonly();
@@ -33,12 +33,30 @@ export class BlogStore {
         return true;
       }
       return false;
-    }).sort((a,b) => {
-      if (a.attributes.pinned &&!b.attributes.pinned) return -1;
+    }).sort((a, b) => {
+      if (a.attributes.pinned && !b.attributes.pinned) return -1;
       if (!a.attributes.pinned && b.attributes.pinned) return 1;
       return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime();
     }).slice((this.pageIndex() - 1) * this.pageSize(), this.pageIndex() * this.pageSize());
   });
+
+
+  readonly searchResult = computed(() => {
+    return this.allPosts().filter(post => {
+      if (post.attributes.title) {
+        if (this._search()) {
+          return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
+        }
+        return true;
+      }
+      return false;
+    }).sort((a, b) => {
+      if (a.attributes.pinned && !b.attributes.pinned) return -1;
+      return 1;
+    });
+  });
+
+
   readonly count = computed(() => this.allPosts().length);
   readonly tags = computed(() => {
     return this._content().reduce((result: string[], post: ContentFile<PostAttributes>) => {
