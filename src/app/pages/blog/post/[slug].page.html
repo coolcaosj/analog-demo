@@ -1,23 +1,25 @@
 <div class="w-full h-full flex justify-center items-center">
   <div class="w-3/5 h-full flex flex-col py-5">
     @if (post$ | async; as post) {
-      <article class="w-full h-full flex flex-col">
-        <h1 class="text-3xl font-bold  w-full flex justify-center items-center text-gray-500">{{ post.attributes.title }}</h1>
-        <h2 class="text-base font-bold my-2 w-full flex justify-center items-center text-gray-400">{{ post.attributes.date | date: 'yyyy-MM-dd' }}</h2>
-        <hr>
+    <article class="w-full h-full flex flex-col border-[1px] rounded-md border-gray-200">
+      <div class="flex justify-between bg-[#f4f7f9] py-2 px-5 rounded-t-md">
+        <div>{{ post.attributes.title }}</div>
+        <div>{{ post.attributes.date | date: 'yyyy-MM-dd' }}</div>
+      </div>
+      <hr>
+      <div class="w-full h-full flex-1 flex flex-col p-5">
         <img class="w-auto h-auto max-h-[200px] object-cover my-5" [src]="post.attributes.coverImage" />
         <analog-markdown [content]="post.content" />
-      </article>
-      <hr class="my-5" />
-      <div class="flex flex-wrap mt-5">
-        @for (item of post.attributes.tags; track $index) {
-          <div class="text-blue-400 hover:text-blue-600 mx-2 bg-gray-200 rounded-sm p-1 cursor-pointer"># {{ item }}</div>
-        }
       </div>
-
+    </article>
+    <hr class="my-5" />
+    <div class="flex flex-wrap mt-5">
+      @for (item of post.attributes.tags; track $index) {
+      <div class="text-blue-400 hover:text-blue-600 mx-2 bg-gray-200 rounded-sm p-1 cursor-pointer"># {{ item }}</div>
       }
+    </div>
+
+    }
   </div>
 
 </div>
-
-

@@ -12,7 +12,10 @@ export class BlogStore {
   private _pageIndex = signal(1); // 当前页码
   private _search = signal('');   // 搜索关键字
 
-  readonly allPosts = this._content.asReadonly();
+  readonly allPosts = computed(() => {
+    // 只保留post
+    return this._content().filter(post => post.attributes.slug!= 'about');
+  });
 
   readonly pageSize = this._pageSize.asReadonly();
   readonly pageIndex = this._pageIndex.asReadonly();
@@ -22,7 +25,7 @@ export class BlogStore {
   readonly totalPage = computed(() => Math.ceil(this.count() / this.pageSize()));
 
   readonly posts = computed(() => {
-    return this._content().filter(post => post.attributes.slug != 'about').filter(post => {
+    return this.allPosts().filter(post => {
       if (post.attributes.title) {
         if (this._search()) {
           return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
