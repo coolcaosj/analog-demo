@@ -2,7 +2,7 @@
   <div class="w-3/5 h-full flex flex-col py-5">
     @if (post$ | async; as post) {
     <article class="w-full h-full flex flex-col border-[1px] rounded-md border-gray-200">
-      <div class="flex justify-between bg-[#f4f7f9] py-2 px-5 rounded-t-md">
+      <div class="flex justify-between bg-[#f4f7f9] py-2 px-5 rounded-t-md text-lg font-bold text-gray-500">
         <div>{{ post.attributes.title }}</div>
         <div>{{ post.attributes.date | date: 'yyyy-MM-dd' }}</div>
       </div>
