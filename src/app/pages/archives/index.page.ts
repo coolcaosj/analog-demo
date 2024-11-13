@@ -13,7 +13,7 @@ export default class CategoriesComponent implements OnInit {
   private readonly store = inject(BlogStore);
   readonly postCount = this.store.count();
   readonly archives = this.store.archives();
-  readonly years = [...this.archives.keys()].sort((a, b) => b - a);
+  readonly years = [...this.archives.keys()].sort().reverse();
   ngOnInit(): void {
 
   }
