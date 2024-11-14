@@ -4,9 +4,9 @@
       <span class="text-2xl font-bold text-gray-600 border-y-2 border-gray-400">{{siteName}}</span>
     </div>
     <div class="w-2/6 flex justify-center items-center">
-      <button class="flex justify-center items-center border border-gray-200 h-8 w-36 bg-[#f4f7f9] rounded-md hover:bg-[rgb(231,235,238)]" (click)="showSearch = true">
+      <button class="flex justify-center items-center border border-gray-200 h-8 w-56 bg-[#f4f7f9] rounded-md hover:bg-[rgb(231,235,238)]" (click)="showSearch = true">
         <img src="assets/search.svg" alt="search" class="h-4 w-4">
-        <span class="text-sm">点击搜索</span>
+        <span class="text-sm">点击或键入'/'键开始搜索</span>
       </button>
     </div>
     <div class=" flex-1 flex items-center justify-center ">
@@ -37,13 +37,14 @@
 @if (showSearch) {
 <div class="w-full h-full fixed top-0 left-0 bottom-0 right-0 bg-gray-200 bg-opacity-40 backdrop-blur-sm flex justify-center " (click)="clickModal($event)">
   <div class="w-2/3 h-2/3 flex flex-col justify-center bg-white rounded-md mt-5 mb-5 p-5">
-    <div class="w-full h-10">
-      <input autofocus class="w-full h-full p-2 border border-gray-200 rounded-sm" placeholder="请输入搜索内容" [ngModel]="search()" (ngModelChange)="searchChange($event)" (keydown.esc)="closeSearchModal()"/>
+    <div class="w-full h-10 border-2 border-blue-400 rounded-md flex items-center">
+      <img src="assets/search.svg" alt="search" class="h-4 w-4 ml-2">
+      <input autofocus class="w-full h-full p-2 outline-none" placeholder="请输入搜索内容" [ngModel]="search()" (ngModelChange)="searchChange($event)" (keydown.esc)="closeSearchModal()"/>
     </div>
-    <div class="flex-1 mt-5">
+    <div class="flex-1 mt-5 overflow-auto">
       @for (item of searchResult(); track $index) {
-        <div class="h-10 flex items-center cursor-pointer hover:bg-[rgb(235,238,240)] rounded-md">
-          <a class="text-[#1f2328] hover:text-[#1f2328] p-1 rounded-md" (click)="goToPost(item.attributes.slug)">{{item.attributes.title}}</a>
+        <div class="h-14 flex items-center cursor-pointer hover:bg-[rgb(235,238,240)] rounded-md" (click)="goToPost(item.attributes.slug)">
+          <div class="text-[#1f2328] hover:text-[#1f2328] p-1 rounded-md" >{{item.attributes.title}}</div>
         </div>
       }
     </div>

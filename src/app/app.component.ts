@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { siteConfig } from './site.config';
@@ -11,7 +11,7 @@ import { BlogStore } from './store/blog.store';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private readonly router: Router,
   ) {}
@@ -20,6 +20,16 @@ export class AppComponent {
   search  = this.store.search;
   showSearch: boolean = false;
   searchResult = this.store.searchResult;
+
+  ngOnInit(): void {
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key == '/') {
+      this.showSearchModal();
+    }
+  }
 
   searchChange(text: string) {
     this.store.setSearch(text);
