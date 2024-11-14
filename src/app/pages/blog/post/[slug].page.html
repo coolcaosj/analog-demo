@@ -12,10 +12,9 @@
         <analog-markdown [content]="post.content" />
       </div>
     </article>
-    <hr class="my-5" />
     <div class="flex flex-wrap mt-5">
       @for (item of post.attributes.tags; track $index) {
-      <div class="text-blue-400 hover:text-blue-600 mx-2 bg-gray-200 rounded-sm p-1 cursor-pointer"># {{ item }}</div>
+      <div class="h-fit m-2 p-2 px-4 bg-[#ddf4ff] text-[#0969da] rounded-3xl hover:text-white hover:bg-[#0969da] flex justify-center items-center cursor-pointer"  [routerLink]="['/tags/detail']" [queryParams]="{tag: item}"> {{item}}  </div>
       }
     </div>
 

@@ -15,9 +15,6 @@ export default class TagDetailComponent implements OnInit {
   readonly posts = computed(() => {
     return this.store.allPosts().filter(post => {
       if ( post.attributes.tags) {
-        console.log(post.attributes.title,post.attributes.tags);
-        console.log(this.tag());
-
         return post.attributes.tags.includes(this.tag());
       }
       return false;
