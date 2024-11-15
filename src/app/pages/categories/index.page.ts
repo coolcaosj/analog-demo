@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit } from "@angular/core";
+import { Component, computed, inject, OnInit, signal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { BlogStore } from "../../store/blog.store";
 
@@ -20,6 +20,13 @@ export default class CategoriesComponent implements OnInit {
         }
       }
     return map;
+  });
+  readonly selectedCategory = signal('');
+  readonly selectedCategoryBlogs = computed(() => {
+    const blogs = this.store.allPosts();
+    const category = this.selectedCategory();
+    if (category === '') return blogs;
+    return blogs.filter(b => b.attributes.category.includes(category));
   });
   ngOnInit(): void {
 
