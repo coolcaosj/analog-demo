@@ -14,4 +14,8 @@ import PostAttributes from '../../../post-attributes';
 })
 export default class BlogPostComponent {
   readonly post$ = injectContent<PostAttributes>('slug');
+
+  scrollTop() {
+    window.scrollTo({ top:0, left: 0, behavior: 'smooth' });
+  }
 }

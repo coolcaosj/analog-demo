@@ -16,8 +16,11 @@
       <div class="h-fit m-2 p-2 px-4 bg-[#ddf4ff] text-[#0969da] rounded-3xl hover:text-white hover:bg-[#0969da] flex justify-center items-center cursor-pointer"  [routerLink]="['/tags/detail']" [queryParams]="{tag: item}"> {{item}}  </div>
       }
     </div>
-
     }
   </div>
-
+</div>
+<div class="fixed right-10 bottom-10 text-gray-500 hover:text-gray-600 cursor-pointer">
+  <button class="rounded-full  p-2 hover:bg-[rgb(231,235,238)]" (click)="scrollTop()">
+    <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 33.5V15.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 24.5L24 15.5L15 24.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 </div>
