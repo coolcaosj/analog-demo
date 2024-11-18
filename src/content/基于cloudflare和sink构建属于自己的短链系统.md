@@ -3,7 +3,7 @@ title: 基于cloudflare和sink构建属于自己的短链系统
 slug: cloudflare-sink
 tags: [cloudflare, 免费, 白嫖, 短链]
 date: 2024-11-18 15:48:32
-categories: 
+category: 
 - 技术分享
 pinned: true
 ---
