@@ -10,9 +10,7 @@
     "dev": "ng serve --hmr",
     "ng": "ng",
     "start": "yarn dev",
-    "build": "ng build",
-    "watch": "ng build --watch",
-    "test": "ng test"
+    "build": "ng build"
   },
   "dependencies": {
     "@analogjs/content": "^1.9.1",
