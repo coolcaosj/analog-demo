@@ -5,6 +5,7 @@ tags: [ffmpeg, 直播推流, 无人直播]
 date: 2023-11-07 10:33:02
 categories: 
 - 技术分享
+pinned: true
 ---
 
 ![](https://s2.loli.net/2024/11/07/DBK8PCfYp7k36eS.png)

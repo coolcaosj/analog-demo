@@ -5,7 +5,6 @@ tags: [终端工具, 录屏, asciinema, 软件, 免费软件, 终端录制, 开�
 date: 2023-11-07 11:27:32
 categories:
 - 软件推荐
-pinned: true
 ---
 
 ![](https://s2.loli.net/2024/11/07/vWlBgunUxhe2H7Q.png)
