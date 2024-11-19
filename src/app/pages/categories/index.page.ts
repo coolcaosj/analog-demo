@@ -26,7 +26,7 @@ export default class CategoriesComponent implements OnInit {
     const blogs = this.store.allPosts();
     const category = this.selectedCategory();
     if (category === '') return blogs;
-    return blogs.filter(b => b.attributes.category.includes(category));
+    return blogs.filter(b => b.attributes.categories.includes(category));
   });
   ngOnInit(): void {
 

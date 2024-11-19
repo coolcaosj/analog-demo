@@ -3,7 +3,7 @@ title: 分享一款Mac自动化工具-Hammerspoon
 slug: Hammerspoon
 tags: [软件, 效率, 窗口管理, mac软件, 免费软件, 开源]
 date: 2023-11-06 16:38:12
-category:
+categories:
 - 软件推荐
 ---
 

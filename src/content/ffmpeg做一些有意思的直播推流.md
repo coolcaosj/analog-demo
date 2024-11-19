@@ -3,7 +3,7 @@ title: ffmpeg做一些有意思的直播推流
 slug: ffmpeg-live
 tags: [ffmpeg, 直播推流, 无人直播]
 date: 2023-11-07 10:33:02
-category: 
+categories: 
 - 技术分享
 ---
 

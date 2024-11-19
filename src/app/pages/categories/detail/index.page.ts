@@ -12,7 +12,7 @@ import { BlogStore } from "../../../store/blog.store";
 export default class CategoryDetailComponent implements OnInit {
   private readonly store = inject(BlogStore);
   readonly category = signal('');
-  readonly posts = computed(() => this.store.allPosts().filter(post => post.attributes.category == this.category()));
+  readonly posts = computed(() => this.store.allPosts().filter(post => post.attributes.categories == this.category()));
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {

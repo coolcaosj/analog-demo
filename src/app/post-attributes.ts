@@ -3,6 +3,6 @@ export default interface PostAttributes {
   slug: string;   // path
   date: string;   // 日期
   tags: string[];       // 标签
-  category: string;     // 分类
+  categories: string;     // 分类
   pinned?: boolean;      // 是否置顶
 }
