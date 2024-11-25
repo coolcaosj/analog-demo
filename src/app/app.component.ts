@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      const path = (event as NavigationEnd).url.split('/')[1];
+      const path = (event as NavigationEnd).urlAfterRedirects.split('/')[1];
       this.currentTag = path;
     });
 
