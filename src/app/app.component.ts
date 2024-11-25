@@ -3,7 +3,7 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { debounceTime, filter, Subject } from 'rxjs';
+import { debounceTime, filter, map, Subject } from 'rxjs';
 import { initFlowbite } from 'flowbite';
 
 import { siteConfig } from './site.config';
@@ -42,10 +42,8 @@ export class AppComponent implements OnInit, OnDestroy {
     // 监听 路由
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe((d) => {
-      const path = d.urlAfterRedirects.split('/')[1];
-      console.log(path);
-
+    ).subscribe((event: any) => {
+      const path = (event as NavigationEnd).url.split('/')[1];
       this.currentTag = path;
     });
 
