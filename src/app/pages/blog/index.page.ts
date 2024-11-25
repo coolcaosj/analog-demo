@@ -23,6 +23,8 @@ export default class BlogComponent implements OnInit {
   // 博客分类
   readonly categories =  this.blogStore.categories;
 
+  readonly blogCount = this.blogStore.count;
+
   // 分页
   readonly hasNext = this.blogStore.hasNext;
   readonly hasPrev = this.blogStore.hasPrev;

@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => ({
       prerender: {
         routes: ['/blog'],
       },
+      ssr: false,
     }),
   ],
   test: {

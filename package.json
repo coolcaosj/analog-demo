@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/platform-server": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "flowbite": "^2.5.2",
     "front-matter": "^4.0.2",
     "marked": "^7.0.0",
     "marked-gfm-heading-id": "^3.1.0",

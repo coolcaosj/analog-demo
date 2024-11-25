@@ -1,7 +1,7 @@
-<div class="w-full flex justify-center items-center">
-  <div class="w-3/5  py-20 flex flex-col">
-    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500">共有 {{tagsCount()}} 个标签</div>
-    <div class="w-full flex flex-wrap mt-10">
+<div class="w-full h-full flex justify-center items-center px-5">
+  <div class="w-full  flex flex-col">
+    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500 dark:text-gray-50 my-5">共有 {{tagsCount()}} 个标签</div>
+    <div class="w-full flex flex-wrap">
       @for (item of tags(); track $index) {
         <div class="h-fit m-2 p-2 px-4 bg-[#ddf4ff] text-[#0969da] rounded-3xl hover:text-white hover:bg-[#0969da] flex justify-center items-center cursor-pointer" [style]="{ 'font-size': getTagSize(item) }" [routerLink]="['detail']" [queryParams]="{tag: item}"> {{item}}  </div>
       }

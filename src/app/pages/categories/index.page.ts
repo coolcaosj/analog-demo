@@ -1,11 +1,13 @@
 import { Component, computed, inject, OnInit, signal } from "@angular/core";
 import { RouterLink } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { initFlowbite } from 'flowbite';
 import { BlogStore } from "../../store/blog.store";
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './index.page.html',
   styleUrl: './index.page.css',
 })
@@ -29,7 +31,7 @@ export default class CategoriesComponent implements OnInit {
     return blogs.filter(b => b.attributes.categories.includes(category));
   });
   ngOnInit(): void {
-
+    initFlowbite();
   }
 
 }

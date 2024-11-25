@@ -1,14 +1,18 @@
 import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+import { debounceTime, filter, Subject } from 'rxjs';
+import { initFlowbite } from 'flowbite';
+
 import { siteConfig } from './site.config';
 import { BlogStore } from './store/blog.store';
-import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, FormsModule],
+  imports: [RouterLink, RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -16,6 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private readonly router: Router,
   ) { }
+
+  currentTag = '';
 
   private readonly search$ = new Subject<string>();
 
@@ -30,6 +36,19 @@ export class AppComponent implements OnInit, OnDestroy {
     this.search$.pipe(debounceTime(500)).subscribe((text) => {
       this.store.setSearch(text);
     });
+
+    initFlowbite();
+
+    // 监听 路由
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((d) => {
+      const path = d.urlAfterRedirects.split('/')[1];
+      console.log(path);
+
+      this.currentTag = path;
+    });
+
   }
   ngOnDestroy(): void {
     this.search$.unsubscribe();
@@ -65,5 +84,9 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
     this.closeSearchModal();
+  }
+
+  changeTag(tag: string) {
+    this.currentTag = tag;
   }
 }
