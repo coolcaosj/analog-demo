@@ -34,4 +34,12 @@ export default class CategoriesComponent implements OnInit {
     initFlowbite();
   }
 
+  toggleSelected(category: string) {
+    if (category == this.selectedCategory()) {
+      this.selectedCategory.set('');
+    } else {
+      this.selectedCategory.set(category);
+    }
+  }
+
 }

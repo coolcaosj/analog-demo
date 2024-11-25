@@ -1,43 +1,10 @@
-<!-- <div class="w-full h-full flex justify-center items-center">
-  <div class="w-full h-full flex flex-col py-5">
-    @if (post$ | async; as post) {
-    <article class="w-full h-full flex flex-col border-[1px] rounded-md border-gray-200">
-      <div class="flex justify-between bg-[#f4f7f9] py-2 px-5 rounded-t-md text-lg font-bold text-gray-500">
-        <div>{{ post.attributes.title }}</div>
-        <div>{{ post.attributes.date | date: 'yyyy-MM-dd' }}</div>
-      </div>
-      <hr>
-      <div class="w-full h-full flex-1 flex flex-col p-5">
-        <analog-markdown [content]="post.content" />
-      </div>
-    </article>
-    <div class="flex flex-wrap mt-5">
-      @for (item of post.attributes.tags; track $index) {
-      <div class="h-fit m-2 p-2 px-4 bg-[#ddf4ff] text-[#0969da] rounded-3xl hover:text-white hover:bg-[#0969da] flex justify-center items-center cursor-pointer"  [routerLink]="['/tags/detail']" [queryParams]="{tag: item}"> {{item}}  </div>
-      }
-    </div>
-    }
-  </div>
-</div>
-<div class="fixed right-10 bottom-10 text-gray-500 hover:text-gray-600 cursor-pointer">
-  <button class="rounded-full  p-2 hover:bg-[rgb(231,235,238)]" (click)="scrollTop()">
-    <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M24 33.5V15.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 24.5L24 15.5L15 24.5" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-</div> -->
-
-<!--
-Install the "flowbite-typography" NPM package to apply styles and format the article content:
-
-URL: https://flowbite.com/docs/components/typography/
--->
-
 <main
   class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased"
 >
   <div class="flex flex-col justify-between px-4 mx-auto max-w-screen-xl">
     @if (post$ | async; as post) {
     <article
-      class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert"
+      class="mx-auto w-full max-w-screen-xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert"
     >
       <header class="mb-4 lg:mb-6 not-format">
         <address class="flex items-center mb-6 not-italic">
@@ -70,7 +37,7 @@ URL: https://flowbite.com/docs/components/typography/
       </header>
       <analog-markdown [content]="post.content" />
     </article>
-    <div class="flex flex-wrap mt-5 mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+    <div class="flex flex-wrap mt-5 mx-auto w-full max-w-screen-xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       @for (item of post.attributes.tags; track $index) {
       <div
         class="h-fit m-2 p-2 px-4 bg-[#ddf4ff] text-[#0969da] rounded-3xl hover:text-white hover:bg-[#0969da] flex justify-center items-center cursor-pointer"
