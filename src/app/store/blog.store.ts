@@ -8,7 +8,7 @@ import PostAttributes from "src/app/post-attributes";
 export class BlogStore {
   // 博客文章列表
   private readonly _content = signal<ContentFile<PostAttributes>[]>(injectContentFiles<PostAttributes>());
-  private _pageSize = signal(8); // 每页文章数量
+  private _pageSize = signal(6); // 每页文章数量
   private _pageIndex = signal(1); // 当前页码
   private _search = signal('');   // 搜索关键字
 
