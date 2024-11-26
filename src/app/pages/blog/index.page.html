@@ -36,14 +36,14 @@
         }
       </div>
       <nav class="mt-6 flex items-center justify-evenly sm:mt-8" aria-label="Page navigation example">
-        <button (click)="prev()" [disabled]="!hasPrev()" [ngClass]="{ 'text-gray-200 dark:text-gray-500': !hasPrev(), 'hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white': hasPrev() }" class=" ms-0 flex h-8 items-center justify-center rounded-s-lg border  border-gray-300 bg-white px-3 leading-tight text-gray-500  dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 ">
+        <button (click)="prev()" [disabled]="!hasPrev()" [ngClass]="{ 'text-gray-200 dark:text-gray-500': !hasPrev(), 'text-gray-500 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white': hasPrev() }" class=" ms-0 flex h-8 items-center justify-center rounded-s-lg border  border-gray-300 bg-white px-3 leading-tight   dark:border-gray-700 dark:bg-gray-800  ">
           <svg class="h-4 w-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
           </svg>
           <span>上一页</span>
         </button>
         <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">当前第{{pageIdx()}}页，共{{totalPage()}}页</div>
-        <button (click)="next()" [disabled]="!hasNext()" [ngClass]="{ 'text-gray-200 dark:text-gray-500': !hasNext(), 'hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white': hasNext() }" class=" flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 leading-tight text-gray-500  dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 ">
+        <button (click)="next()" [disabled]="!hasNext()" [ngClass]="{ 'text-gray-200 dark:text-gray-500': !hasNext(), 'text-gray-500 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white': hasNext() }" class=" flex h-8 items-center justify-center rounded-e-lg border border-gray-300 bg-white px-3 leading-tight  dark:border-gray-700 dark:bg-gray-800 ">
           <span>下一页</span>
           <svg class="h-4 w-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
