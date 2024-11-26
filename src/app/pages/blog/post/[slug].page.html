@@ -1,7 +1,7 @@
-<main
-  class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased"
+<main id="root"
+  class=" lg:flex xl:flex 2xl:flex lg:flex-row xl:flex-row 2xl:flex-row pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased"
 >
-  <div class="flex flex-col justify-between px-4 mx-auto max-w-screen-xl">
+  <div class="flex flex-col justify-between px-4 mx-auto max-w-screen-xl sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4">
     @if (post$ | async; as post) {
     <article
       class="mx-auto w-full max-w-screen-xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert"
@@ -50,4 +50,19 @@
     </div>
     }
   </div>
+  <div class="flex-1 hidden lg:block xl:block 2xl:block lg:w-1/4 xl:w-1/4 2xl:w-1/4 h-full sticky top-10 ">
+    <ul>
+      @for (item of treeData; track $index) {
+        <app-tree-node [treeNode]="item" (navigate)="navigateTo($event)"></app-tree-node>
+      }
+    </ul>
+  </div>
 </main>
+<button (click)="scrollTop()" class="fixed bottom-5 right-5 cursor-pointer bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-500 rounded-full p-2">
+  <span class="dark:hidden">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.0083 14.1006V42.0001" stroke="#574e4e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 26L24 14L36 26" stroke="#574e4e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6H36" stroke="#574e4e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+  <span class="hidden dark:block">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.0083 14.1006V42.0001" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 26L24 14L36 26" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6H36" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+</button>

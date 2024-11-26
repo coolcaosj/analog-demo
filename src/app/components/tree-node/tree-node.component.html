@@ -1,0 +1,8 @@
+<ul>
+  <li class="ml-5 cursor-pointer text-gray-400  hover:text-gray-600 dark:hover:text-gray-100" (click)="navigateTo(treeNode.id)">{{treeNode.label}}</li>
+  <li class="ml-5">
+    @for (item of treeNode.children; track $index) {
+      <app-tree-node [treeNode]="item" (navigate)="navigateTo($event)"></app-tree-node>
+    }
+  </li>
+</ul>
