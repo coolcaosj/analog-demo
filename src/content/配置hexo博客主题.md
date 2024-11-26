@@ -1,5 +1,6 @@
 ---
 title: 配置hexo博客主题
+description: 之前我们已经成功的搭建了一个hexo博客，但是这个博客的主题还是默认的，我们可以通过修改主题来美化我们的博客。
 slug: hexo-themes
 date: 2023-11-05 17:06:06
 tags: [hexo, 博客, 自建博客]

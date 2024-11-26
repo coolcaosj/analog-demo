@@ -1,5 +1,6 @@
 ---
 title: 使用cloudflare和telegraph-image搭建免费无限的图床
+description: 我们在写博客时，经常会遇到需要图片的情况，但又不想花钱去购买图床服务，网上倒是存在一些免费的图床工具，但又怕这些工具后期会出问题，导致图片无法访问。因此，我就想着自己搭建一个图床，这样就可以保证图片的稳定性，同时也可以免费使用.
 slug: cloudflare-telegraph-image
 date: 2023-11-06 14:20:40
 tags: [cloudflare, 图床, 白嫖, 免费, telegraph-image]

@@ -1,5 +1,6 @@
 ---
 title: 使用nativefier打包网站为桌面应用
+description: 近两天发现一个工具，nativefier，可以将网站应用打包成桌面应用。nativefier是基于electron的，当然，你也可以直接使用electron打包，灵活性更高。
 slug: websites-to-desktop
 date: 2016-11-21 19:22:58
 tags: [开发工具]

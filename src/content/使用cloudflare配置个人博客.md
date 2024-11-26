@@ -1,5 +1,6 @@
 ---
 title: 使用cloudflare配置个人博客
+description: 本篇博客，我将介绍如何使用cloudflare的pages服务来部署我们的hexo博客，借此来体验一下cloudflare的pages服务。
 slug: cloudflare-blog
 date: 2023-11-06 10:41:19
 tags: [cloudflare, 自建博客, 博客]

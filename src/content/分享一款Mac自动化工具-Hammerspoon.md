@@ -1,5 +1,6 @@
 ---
 title: 分享一款Mac自动化工具-Hammerspoon
+description: 之前在Mac平台上找窗口管理软件，有些软件是收费的，有些软件设置比较麻烦，有些功能又有限，在无意当中找到一款名为Hammerspoon的软件，它可以让我们在Mac平台上实现窗口管理，并且非常简单易用。
 slug: Hammerspoon
 tags: [软件, 效率, 窗口管理, mac软件, 免费软件, 开源]
 date: 2023-11-06 16:38:12

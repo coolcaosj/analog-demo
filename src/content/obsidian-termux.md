@@ -1,5 +1,6 @@
 ---
 title: Obsidian安卓端如何与PC端项目进行同步
+description: Obsidian 是一款非常好的**离线**笔记软件，支持Markdown，还有非常多的三方插件来拓展功能，是我目前用的最多的笔记软件。但移动端和PC端的数据同步，如果不买官方的同步服务，还是有点麻烦的。
 slug: obsidian-termux
 date: 2024-03-30 14:07:01
 tags: [obsidian, termux]

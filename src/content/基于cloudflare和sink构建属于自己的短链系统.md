@@ -1,5 +1,6 @@
 ---
 title: 基于cloudflare和sink构建属于自己的短链系统
+description: 之前我们已经使用Cloudflare部署过自己的博客和图床工具， 本篇博客中，我们再部署一个短链系统sink。
 slug: cloudflare-sink
 tags: [cloudflare, 免费, 白嫖, 短链]
 date: 2024-11-18 15:48:32

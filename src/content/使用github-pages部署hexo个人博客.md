@@ -1,5 +1,6 @@
 ---
 title: 使用github-pages部署hexo个人博客
+description: 本篇博客，我将介绍如何使用github的pages服务来部署我们的hexo博客，借此来体验一下github的pages服务。
 slug: github-pages-hexo-blog
 date: 2023-11-01 16:43:12
 tags: [hexo, 自建博客, github, 博客]
