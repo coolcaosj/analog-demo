@@ -78,5 +78,29 @@
     list-style-type: disc;
   }
 
+  blockquote {
+    margin: 5px 5px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    overflow: auto;
+    border-left: 5px solid #d4d3d3;
+  }
+
+  code:not(pre code) {
+    padding: 2px 4px;
+    margin: 0 2px;
+    font-size: 90%;
+    white-space: nowrap;
+    background-color: #f8f8f8;
+    border: 1px solid #d4d3d3;
+    border-radius: 4px;
+
+    @media (prefers-color-scheme: dark) {
+      padding: 2px;
+      background-color: #0b0e14;
+      border: 1px solid #727272;
+    }
+  }
+
 }
 
