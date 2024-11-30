@@ -5,6 +5,7 @@ slug: free-domain-eu-org
 tags: [白嫖,免费,域名]
 categories: [技术分享]
 date: 2024-11-29 22:23:39
+pinned: true
 ---
 
 ![](https://s2.loli.net/2024/11/29/rQCDwyXSE53fb2I.png)
