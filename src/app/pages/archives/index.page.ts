@@ -15,7 +15,6 @@ export default class CategoriesComponent implements OnInit {
   readonly archives = this.store.archives();
   readonly years = [...this.archives.keys()].sort().reverse();
   ngOnInit(): void {
-
   }
 
 }

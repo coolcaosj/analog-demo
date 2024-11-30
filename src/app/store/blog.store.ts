@@ -14,7 +14,7 @@ export class BlogStore {
 
   readonly allPosts = computed(() => {
     // 只保留post
-    return this._content().filter(post => post.attributes.slug != 'about');
+    return this._content().filter(post => post.attributes.slug != 'about').sort((a, b) => new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime());
   });
 
   readonly pageSize = this._pageSize.asReadonly();
@@ -79,7 +79,7 @@ export class BlogStore {
   });
 
   readonly archives = computed(() => {
-    return this.allPosts().reduce((result: Map<string, string[][]>, post: ContentFile<PostAttributes>) => {
+    const result = this.allPosts().reduce((result: Map<string, string[][]>, post: ContentFile<PostAttributes>) => {
       const postDate = post.attributes.date;
       if (!postDate) return result;
       const year = new Date(postDate).getFullYear();
@@ -91,6 +91,7 @@ export class BlogStore {
       }
       return result;
     }, new Map());
+    return result;
   });
 
   setSearch(text: string) {
