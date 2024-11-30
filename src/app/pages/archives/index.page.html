@@ -6,8 +6,9 @@
         <div class="flex flex-col">
           <div class="w-full flex justify-start items-center text-xl font-bold text-gray-500">{{year}}</div>
           @for (item of archives.get(year); track $index) {
-            <div class="h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600 flex justify-start items-center text-gray-400 cursor-pointer dark:hover:text-gray-200" [routerLink]="'/blog/post/' + item[0]">
-              {{item[1]}}
+            <div class="flex justify-between h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600  items-center text-gray-400 cursor-pointer dark:hover:text-gray-200" [routerLink]="'/blog/post/' + item[0]">
+              <div>{{item[1]}}</div>
+              <div>{{item[2] | date: 'yyyy-MM-dd HH:mm'}}</div>
             </div>
           }
         </div>

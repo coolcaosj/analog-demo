@@ -85,9 +85,9 @@ export class BlogStore {
       const year = new Date(postDate).getFullYear();
       const key = `${year}`;
       if (result.has(key)) {
-        result.get(key)?.push([post.attributes.slug, post.attributes.title]);
+        result.get(key)?.push([post.attributes.slug, post.attributes.title, post.attributes.date]);
       } else {
-        result.set(key, [[post.attributes.slug, post.attributes.title]]);
+        result.set(key, [[post.attributes.slug, post.attributes.title, post.attributes.date]]);
       }
       return result;
     }, new Map());
