@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, effect, HostListener, inject, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,12 @@ import { BlogStore } from './store/blog.store';
 export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private readonly router: Router,
-  ) { }
+  ) { 
+    effect(() => {
+      console.log(this.searchResult());
+      
+    });
+  }
 
   currentTag = '';
 

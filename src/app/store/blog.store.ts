@@ -25,15 +25,7 @@ export class BlogStore {
   readonly totalPage = computed(() => Math.ceil(this.count() / this.pageSize()));
 
   readonly posts = computed(() => {
-    return this.allPosts().filter(post => {
-      if (post.attributes.title) {
-        if (this._search()) {
-          return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
-        }
-        return true;
-      }
-      return false;
-    }).sort((a, b) => {
+    return this.allPosts().sort((a, b) => {
       if (a.attributes.pinned && !b.attributes.pinned) return -1;
       if (!a.attributes.pinned && b.attributes.pinned) return 1;
       return new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime();
@@ -42,12 +34,21 @@ export class BlogStore {
 
 
   readonly searchResult = computed(() => {
+    
     return this.allPosts().filter(post => {
-      if (post.attributes.title) {
-        if (this._search()) {
-          return post.attributes.title.toLowerCase().includes(this._search().toLowerCase());
-        }
+
+      // 如果搜索关键字为空，返回所有
+      if (!this._search()) {
         return true;
+      }
+
+      // 如果搜索关键字不为空，返回包含搜索关键字的
+      if (post.attributes.title && post.attributes.title.toLowerCase().includes(this._search().toLowerCase())) {
+        return true;
+      }
+      
+      if (post.attributes.tags && post.attributes.tags.length > 0) {
+        return post.attributes.tags.map(t => t.toLowerCase()).includes(this._search().toLowerCase());
       }
       return false;
     }).sort((a, b) => {
