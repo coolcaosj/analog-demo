@@ -1,17 +1,44 @@
 <div class="mx-auto max-w-screen-xl w-full flex justify-center items-center px-5">
   <div class="w-full  py-20 flex flex-col">
-    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500 dark:text-gray-100">共有 {{postCount}} 篇博客，加油！💪</div>
+    <div class="w-full flex justify-center items-center text-2xl font-bold text-gray-500 dark:text-gray-100">共有
+      {{postCount}} 篇博客，加油！💪</div>
     <div class="w-full flex flex-col flex-wrap mt-10">
-      @for (year of years; track $index) {
-        <div class="flex flex-col">
-          <div class="w-full flex justify-start items-center text-xl font-bold text-gray-500">{{year}}</div>
-          @for (item of archives.get(year); track $index) {
-            <div class="flex justify-between h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600  items-center text-gray-400 cursor-pointer dark:hover:text-gray-200" [routerLink]="'/blog/post/' + item[0]">
+      @for (year of years; track $index;let idx = $index, last = $last, first = $first) {
+      <h2>
+        <button (click)="toggleSelected(year)" type="button" [ngClass]="{ 'rounded-t-xl border-t': first  }"
+          class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border-x border-b border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3">
+          <div class="flex items-center w-full">
+            <span class="font-bold">{{year}}年</span>
+            <span class="font-bold mx-10">共计{{archives.get(year).length}}篇</span>
+          </div>
+          <svg [ngClass]="{'hidden': selectedYear() != year}" data-accordion-icon="" class="w-3 h-3 shrink-0"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5 5 1 1 5"></path>
+          </svg>
+          <svg [ngClass]="{'hidden': selectedYear() == year}" data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5 5 1 1 5" />
+          </svg>
+        </button>
+      </h2>
+      <div class="hidden max-h-[600px] overflow-auto" [ngClass]="{ 'hidden': selectedYear() != year }">
+        <div class="p-5 border-x border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          @if (selectedYear() == year) {
+          <div class="flex flex-col justify-start items-center border-gray-200 max-h-[600px] overflow-auto">
+            @for (item of archives.get(year); track $index) {
+            <div
+              class="w-5/6 flex justify-between h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600  items-center text-gray-400 cursor-pointer dark:hover:text-gray-200"
+              [routerLink]="'/blog/post/' + item[0]">
               <div>{{item[1]}}</div>
               <div>{{item[2] | date: 'yyyy-MM-dd HH:mm'}}</div>
             </div>
+            }
+          </div>
           }
         </div>
+      </div>
       }
     </div>
   </div>
