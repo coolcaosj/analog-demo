@@ -29,10 +29,10 @@
           <div class="flex flex-col justify-start items-center border-gray-200 max-h-[600px] overflow-auto">
             @for (item of archives.get(year); track $index) {
             <div
-              class="w-5/6 flex justify-between h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600  items-center text-gray-400 cursor-pointer dark:hover:text-gray-200"
+              class="w-full sm:w-full md:w-5/6 lg:w-5/6 xl:w-3/4 2xl:w-3/4 flex justify-between h-8 m-2 p-2 px-4 border-b-[1px] border-dashed border-b-gray-400 hover:text-gray-600  items-center text-gray-400 cursor-pointer dark:hover:text-gray-200"
               [routerLink]="'/blog/post/' + item[0]">
               <div>{{item[1]}}</div>
-              <div>{{item[2] | date: 'yyyy-MM-dd HH:mm'}}</div>
+              <div class="hidden md:hidden lg:hidden xl:block 2xl:block">{{item[2] | date: 'yyyy-MM-dd HH:mm'}}</div>
             </div>
             }
           </div>
