@@ -5,7 +5,6 @@ description: cloudns 是一家 DNS 托管服务商，官方网站是 [https://ww
 tags: [白嫖, 免费, 域名]
 categories: [技术分享]
 date: 2024-12-05 15:46:20
-pinned: true
 ---
 
 ![](https://s2.loli.net/2024/12/05/IvfbsM8YpH2gOan.png)
